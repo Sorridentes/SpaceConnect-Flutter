@@ -80,10 +80,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: AppTheme.errorRed.withOpacity(0.1),
+                          color: AppTheme.errorRed.withValues(alpha: .1),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: AppTheme.errorRed.withOpacity(0.3),
+                            color: AppTheme.errorRed.withValues(alpha: .3),
                           ),
                         ),
                         child: Row(

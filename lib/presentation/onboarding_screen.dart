@@ -52,7 +52,7 @@ class _OnboardingContent extends StatelessWidget {
                     child: Text(
                       'Pular',
                       style: TextStyle(
-                        color: AppTheme.cyanAccent.withOpacity(0.7),
+                        color: AppTheme.cyanAccent.withValues(alpha: .7),
                         fontSize: 14,
                       ),
                     ),
@@ -81,10 +81,10 @@ class _OnboardingContent extends StatelessWidget {
                               height: 280,
                               width: double.infinity,
                               fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) => Container(
+                              errorBuilder: (_, _, _) => Container(
                                 height: 280,
                                 decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.05),
+                                  color: Colors.white.withValues(alpha: .05),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: const Icon(

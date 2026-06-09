@@ -171,9 +171,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: .05),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.white.withOpacity(0.08)),
+        border: Border.all(color: Colors.white.withValues(alpha: .08)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -184,7 +184,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
               fontSize: 11,
               fontWeight: FontWeight.w600,
               letterSpacing: 1.5,
-              color: Colors.white.withOpacity(0.5),
+              color: Colors.white.withValues(alpha: .5),
             ),
           ),
           const SizedBox(height: 12),
@@ -227,9 +227,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.05),
+          color: Colors.white.withValues(alpha: .05),
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.white.withOpacity(0.1)),
+          border: Border.all(color: Colors.white.withValues(alpha: .1)),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -238,7 +238,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
               label,
               style: TextStyle(
                 fontSize: 11,
-                color: Colors.white.withOpacity(0.4),
+                color: Colors.white.withValues(alpha: .4),
               ),
             ),
             const SizedBox(height: 4),
@@ -261,16 +261,19 @@ class _GalleryScreenState extends State<GalleryScreen> {
         onChanged: viewModel.updateSearchQuery,
         decoration: InputDecoration(
           hintText: 'Buscar por título...',
-          prefixIcon: Icon(Icons.search, color: Colors.white.withOpacity(0.3)),
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.white.withValues(alpha: .3),
+          ),
           filled: true,
-          fillColor: Colors.white.withOpacity(0.05),
+          fillColor: Colors.white.withValues(alpha: .05),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+            borderSide: BorderSide(color: Colors.white.withValues(alpha: .1)),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Colors.white.withOpacity(0.1)),
+            borderSide: BorderSide(color: Colors.white.withValues(alpha: .1)),
           ),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 16,
@@ -368,8 +371,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
   Widget _buildBottomNav(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppTheme.primaryDark.withOpacity(0.95),
-        border: Border(top: BorderSide(color: Colors.white.withOpacity(0.05))),
+        color: AppTheme.primaryDark.withValues(alpha: .95),
+        border: Border(
+          top: BorderSide(color: Colors.white.withValues(alpha: .05)),
+        ),
       ),
       child: BottomNavigationBar(
         currentIndex: _currentNavIndex,

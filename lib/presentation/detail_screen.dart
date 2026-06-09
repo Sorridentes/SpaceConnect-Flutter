@@ -171,8 +171,8 @@ class _DetailScreenState extends State<DetailScreen> {
                       child: Image.network(
                         astronomy.image,
                         fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => Container(
-                          color: Colors.white.withOpacity(0.05),
+                        errorBuilder: (_, _, _) => Container(
+                          color: Colors.white.withValues(alpha: .05),
                           child: const Icon(
                             Icons.image_not_supported_outlined,
                             size: 64,
@@ -190,7 +190,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             end: Alignment.bottomCenter,
                             colors: [
                               Colors.transparent,
-                              AppTheme.primaryDark.withOpacity(0.8),
+                              AppTheme.primaryDark.withValues(alpha: .8),
                             ],
                           ),
                         ),
@@ -213,10 +213,10 @@ class _DetailScreenState extends State<DetailScreen> {
                         vertical: 6,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.05),
+                        color: Colors.white.withValues(alpha: .05),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.1),
+                          color: Colors.white.withValues(alpha: .1),
                         ),
                       ),
                       child: Row(
@@ -225,14 +225,14 @@ class _DetailScreenState extends State<DetailScreen> {
                           Icon(
                             Icons.calendar_today,
                             size: 14,
-                            color: AppTheme.cyanAccent.withOpacity(0.8),
+                            color: AppTheme.cyanAccent.withValues(alpha: .8),
                           ),
                           const SizedBox(width: 6),
                           Text(
                             _formatDate(astronomy.date),
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.white.withOpacity(0.7),
+                              color: Colors.white.withValues(alpha: .7),
                             ),
                           ),
                         ],
@@ -251,10 +251,10 @@ class _DetailScreenState extends State<DetailScreen> {
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.04),
+                        color: Colors.white.withValues(alpha: .04),
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: Colors.white.withOpacity(0.06),
+                          color: Colors.white.withValues(alpha: .06),
                         ),
                       ),
                       child: Text(
@@ -262,7 +262,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         style: TextStyle(
                           fontSize: 14,
                           height: 1.6,
-                          color: Colors.white.withOpacity(0.7),
+                          color: Colors.white.withValues(alpha: .7),
                         ),
                       ),
                     ),
@@ -274,7 +274,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         'Copyright: ${astronomy.copyright}',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.white.withOpacity(0.4),
+                          color: Colors.white.withValues(alpha: .4),
                           fontStyle: FontStyle.italic,
                         ),
                       ),

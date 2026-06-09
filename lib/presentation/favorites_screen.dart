@@ -71,7 +71,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                           'Sua coleção pessoal de maravilhas cósmicas.',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.white.withOpacity(0.5),
+                            color: Colors.white.withValues(alpha: .5),
                           ),
                         ),
                       ],
@@ -80,9 +80,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   const SizedBox(height: 16),
 
                   // Content
-                  Expanded(
-                    child: _buildContent(context, viewModel),
-                  ),
+                  Expanded(child: _buildContent(context, viewModel)),
                 ],
               ),
             ),
@@ -110,9 +108,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               const SizedBox(width: 8),
               Text(
                 'APOD 2025',
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -142,7 +140,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             Icon(
               Icons.star_outline,
               size: 64,
-              color: Colors.white.withOpacity(0.15),
+              color: Colors.white.withValues(alpha: .15),
             ),
             const SizedBox(height: 16),
             Text(
@@ -150,7 +148,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
-                color: Colors.white.withOpacity(0.5),
+                color: Colors.white.withValues(alpha: .5),
               ),
             ),
             const SizedBox(height: 8),
@@ -158,7 +156,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
               'Explore a galeria e marque suas imagens preferidas.',
               style: TextStyle(
                 fontSize: 13,
-                color: Colors.white.withOpacity(0.3),
+                color: Colors.white.withValues(alpha: .3),
               ),
               textAlign: TextAlign.center,
             ),
@@ -191,9 +189,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           child: Container(
             margin: const EdgeInsets.only(bottom: 12),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.04),
+              color: Colors.white.withValues(alpha: .04),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.white.withOpacity(0.06)),
+              border: Border.all(color: Colors.white.withValues(alpha: .06)),
             ),
             child: Row(
               children: [
@@ -205,13 +203,13 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                   ),
                   child: Image.network(
                     astronomy.image,
-                    width: 80,
-                    height: 90,
+                    width: 180,
+                    height: 190,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
+                    errorBuilder: (_, _, _) => Container(
                       width: 80,
                       height: 90,
-                      color: Colors.white.withOpacity(0.05),
+                      color: Colors.white.withValues(alpha: .05),
                       child: const Icon(
                         Icons.image_not_supported_outlined,
                         color: Colors.white24,
@@ -223,7 +221,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 10),
+                      horizontal: 12,
+                      vertical: 10,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -233,7 +233,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                             fontSize: 10,
                             fontWeight: FontWeight.w600,
                             letterSpacing: 1,
-                            color: AppTheme.cyanAccent.withOpacity(0.8),
+                            color: AppTheme.cyanAccent.withValues(alpha: .8),
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -254,7 +254,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             fontSize: 11,
-                            color: Colors.white.withOpacity(0.5),
+                            color: Colors.white.withValues(alpha: .5),
                             height: 1.3,
                           ),
                         ),
@@ -269,7 +269,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                     onPressed: () => viewModel.removeFavorite(astronomy),
                     icon: Icon(
                       Icons.delete_outline,
-                      color: Colors.white.withOpacity(0.4),
+                      color: Colors.white.withValues(alpha: .4),
                       size: 20,
                     ),
                   ),
@@ -285,9 +285,9 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
   Widget _buildBottomNav(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppTheme.primaryDark.withOpacity(0.95),
+        color: AppTheme.primaryDark.withValues(alpha: .95),
         border: Border(
-          top: BorderSide(color: Colors.white.withOpacity(0.05)),
+          top: BorderSide(color: Colors.white.withValues(alpha: .05)),
         ),
       ),
       child: BottomNavigationBar(

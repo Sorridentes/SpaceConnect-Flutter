@@ -69,8 +69,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         children: [
                           IconButton(
                             onPressed: () => Navigator.pop(context),
-                            icon: const Icon(Icons.arrow_back_ios,
-                                color: Colors.white70),
+                            icon: const Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.white70,
+                            ),
                           ),
                         ],
                       ),
@@ -96,16 +98,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: AppTheme.errorRed.withOpacity(0.1),
+                          color: AppTheme.errorRed.withValues(alpha: .1),
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: AppTheme.errorRed.withOpacity(0.3),
+                            color: AppTheme.errorRed.withValues(alpha: .3),
                           ),
                         ),
                         child: Row(
                           children: [
-                            const Icon(Icons.error_outline,
-                                color: AppTheme.errorRed, size: 20),
+                            const Icon(
+                              Icons.error_outline,
+                              color: AppTheme.errorRed,
+                              size: 20,
+                            ),
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
@@ -128,8 +133,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
                         labelText: 'Nome completo',
-                        prefixIcon:
-                            Icon(Icons.person_outline, color: Colors.white38),
+                        prefixIcon: Icon(
+                          Icons.person_outline,
+                          color: Colors.white38,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -141,8 +148,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
                         labelText: 'Email',
-                        prefixIcon:
-                            Icon(Icons.email_outlined, color: Colors.white38),
+                        prefixIcon: Icon(
+                          Icons.email_outlined,
+                          color: Colors.white38,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -154,8 +163,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         labelText: 'Senha',
-                        prefixIcon: const Icon(Icons.lock_outline,
-                            color: Colors.white38),
+                        prefixIcon: const Icon(
+                          Icons.lock_outline,
+                          color: Colors.white38,
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
@@ -180,8 +191,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         labelText: 'Confirmar senha',
-                        prefixIcon: const Icon(Icons.lock_outline,
-                            color: Colors.white38),
+                        prefixIcon: const Icon(
+                          Icons.lock_outline,
+                          color: Colors.white38,
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscureConfirm

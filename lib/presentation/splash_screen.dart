@@ -83,10 +83,10 @@ class _SplashScreenState extends State<SplashScreen>
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(24),
                           border: Border.all(
-                            color: AppTheme.cyanAccent.withOpacity(0.3),
+                            color: AppTheme.cyanAccent.withValues(alpha: .3),
                             width: 2,
                           ),
-                          color: Colors.white.withOpacity(0.05),
+                          color: Colors.white.withValues(alpha: .05),
                         ),
                         child: const Icon(
                           Icons.star_outline_rounded,
@@ -112,7 +112,7 @@ class _SplashScreenState extends State<SplashScreen>
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                           letterSpacing: 4,
-                          color: AppTheme.cyanAccent.withOpacity(0.7),
+                          color: AppTheme.cyanAccent.withValues(alpha: .7),
                         ),
                       ),
                       const SizedBox(height: 60),
@@ -122,7 +122,7 @@ class _SplashScreenState extends State<SplashScreen>
                         height: 24,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          color: AppTheme.cyanAccent.withOpacity(0.6),
+                          color: AppTheme.cyanAccent.withValues(alpha: .6),
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -130,7 +130,7 @@ class _SplashScreenState extends State<SplashScreen>
                         'Calibrating sensors...',
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.white.withOpacity(0.4),
+                          color: Colors.white.withValues(alpha: .4),
                         ),
                       ),
                     ],
