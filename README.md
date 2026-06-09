@@ -1,6 +1,60 @@
 # SpaceConnect - Flutter MVVM
 
-Aplicativo Flutter que consome a API NASA APOD (Astronomy Picture of the Day) para exibir imagens astronômicas diárias. Projeto transcrito do app Kotlin com Clean Architecture para Flutter seguindo o padrão **MVVM** com Provider e GetIt.
+## Descrição da solução
+
+SpaceConnect é um aplicativo Flutter que consome a API NASA APOD (Astronomy Picture of the Day) para exibir imagens astronômicas e informações diárias. A aplicação traz uma experiência mobile moderna com autenticação local, navegação organizada, filtros e um sistema de favoritos.
+
+## Proposta da aplicação
+
+A proposta do SpaceConnect é transformar o conteúdo da NASA em um app intuitivo, permitindo que o usuário explore imagens do dia, visualize detalhes com efeito hero, salve favoritos e filtre resultados por data e texto.
+O objetivo é oferecer um produto funcional para descoberta de astronomia, com persistência de login e favoritos usando armazenamento local.
+
+## Integrantes do grupo
+
+- [Seu Nome] - Desenvolvimento Flutter
+- [Nome do Integrante 2] - Design e UI
+- [Nome do Integrante 3] - Lógica de negócios e integração
+- [Nome do Integrante 4] - Testes e documentação
+
+> Substitua os nomes acima pelos integrantes reais do grupo.
+
+## Funcionalidades principais
+
+- Tela de splash com animação
+- Onboarding com 4 páginas
+- Login e cadastro com persistência
+- Galeria APOD com busca por intervalo de datas
+- Filtro por título e descrição
+- Tela de detalhes com imagem em destaque (Hero)
+- Favoritos persistidos localmente
+- Navegação inferior entre Galeria e Favoritos
+
+## Como rodar
+
+```bash
+# Instalar dependências para flutter
+flutter pub get
+
+# Instalar dependências para o proxy-server
+npm install
+
+# Executar para iniciar o proxy-server
+node proxy-server/server.js
+
+# Abra outro terminal para rodar o app Flutter
+# Executar no modo debug
+flutter run
+
+# Executar para web
+flutter run -d chrome
+
+```
+
+> Observação: o projeto está configurado para usar proxy na exibição de imagens, garantindo que as imagens APOD sejam carregadas corretamente em ambientes onde o acesso direto pode ser restrito.
+
+## Vídeo Pitch
+
+Link do vídeo Pitch: [Video do Youtube](https://youtu.be/V75YywlTELU?si=uG9MIuNVvOFAaWOU)
 
 ## Arquitetura
 
@@ -50,18 +104,6 @@ lib/
 └── main.dart                      # Entry point
 ```
 
-## Mapeamento Kotlin → Flutter
-
-| Kotlin (Clean Architecture)       | Flutter (MVVM)                     |
-|-----------------------------------|------------------------------------|
-| `domain/model/Astronomy.kt`      | `domain/models/astronomy_model.dart` |
-| `data/remote/AstronomyApi.kt`    | `data/services/nasa_api_service.dart` |
-| `data/repository/AstronomyRepositoryImpl.kt` | `data/repositories/astronomy_repository.dart` |
-| `presentation/list/AstronomyListViewModel.kt` | `presentation/view_models/gallery_view_model.dart` |
-| `presentation/list/AstronomyListScreen.kt` | `presentation/gallery_screen.dart` |
-| `presentation/detail/AstronomyDetailScreen.kt` | `presentation/detail_screen.dart` |
-| `presentation/favorites/AstronomyFavoritesScreen.kt` | `presentation/favorites_screen.dart` |
-
 ## Tecnologias
 
 - **Flutter** 3.x + Dart 3.x
@@ -73,36 +115,10 @@ lib/
 - **Intl** - Formatação de datas
 - **Cached Network Image** - Cache de imagens
 
-## Funcionalidades
-
-- Splash Screen com animação
-- Onboarding com 4 páginas
-- Autenticação (Login + Cadastro) com persistência local
-- Galeria APOD com busca por intervalo de datas
-- Filtro de texto por título/descrição
-- Tela de detalhes com imagem hero
-- Sistema de favoritos com persistência local
-- Navegação inferior (Galeria / Favoritos)
-
-## Como Executar
-
-```bash
-# Instalar dependências
-flutter pub get
-
-# Executar no modo debug
-flutter run
-
-# Executar para web
-flutter run -d chrome
-
-# Build para produção (web)
-flutter build web
-```
-
 ## API
 
 O projeto utiliza a API NASA APOD:
+
 - **Base URL**: `https://api.nasa.gov`
 - **Endpoint**: `/planetary/apod`
 - **Documentação**: https://api.nasa.gov/
