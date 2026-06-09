@@ -207,12 +207,26 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                     height: 190,
                     fit: BoxFit.cover,
                     errorBuilder: (_, _, _) => Container(
-                      width: 80,
-                      height: 90,
+                      width: 180,
+                      height: 190,
                       color: Colors.white.withValues(alpha: .05),
-                      child: const Icon(
-                        Icons.image_not_supported_outlined,
-                        color: Colors.white24,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.broken_image,
+                            size: 48,
+                            color: Colors.white.withValues(alpha: .3),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'Erro ao carregar imagem',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.white.withValues(alpha: .3),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
