@@ -11,12 +11,9 @@ O objetivo é oferecer um produto funcional para descoberta de astronomia, com p
 
 ## Integrantes do grupo
 
-- [Seu Nome] - Desenvolvimento Flutter
-- [Nome do Integrante 2] - Design e UI
-- [Nome do Integrante 3] - Lógica de negócios e integração
-- [Nome do Integrante 4] - Testes e documentação
-
-> Substitua os nomes acima pelos integrantes reais do grupo.
+- Rodrigo Silva Rocha RM: 552857 - Desenvolvimento Flutter
+- Felipe Lima Bonato Testa RM: 553780 - Design e UI
+- Thiago Luiz Pereira RM: 553720 - Lógica de negócios e integração API
 
 ## Funcionalidades principais
 
