@@ -1,47 +1,25 @@
-// lib/data/repositories/auth_repository.dart
-import '../../domain/models/user_model.dart';
-import '../services/auth_firebase_service.dart';
-import '../services/auth_local_service.dart';
+import 'package:space_connect/data/services/auth_local_service.dart';
+import 'package:space_connect/domain/models/user_model.dart';
 
-/// Repositório de autenticação com suporte Firebase + Local fallback.
+import '../services/auth_firebase_service.dart';
+
 class AuthRepository {
   final AuthFirebaseService _authFirebaseService;
+
   final AuthLocalService _authLocalService;
 
   AuthRepository(this._authFirebaseService, this._authLocalService);
 
-  Future<UserModel> signIn(String email, String password) async {
-    try {
-      // Try Firebase first
-      final user = await _authFirebaseService.signIn(email, password);
-      // Sync to local storage
-      await _authLocalService.saveCurrentUser(user);
-      return user;
-    } catch (e) {
-      // Fallback to local if needed
-      return _authLocalService.signIn(email, password);
-    }
+  Future<void> signIn(String email, String password) async {
+    return _authFirebaseService.signIn(email, password);
   }
 
-  Future<UserModel> signUp(String name, String email, String password) async {
-    try {
-      // Try Firebase first
-      final user = await _authFirebaseService.signUp(name, email, password);
-      // Sync to local storage
-      await _authLocalService.saveCurrentUser(user);
-      return user;
-    } catch (e) {
-      // Fallback to local
-      return _authLocalService.signUp(name, email, password);
-    }
+  Future<void> signUp(String email, String password) async {
+    return _authFirebaseService.signUp(email, password);
   }
 
   Future<void> signOut() async {
-    try {
-      await _authFirebaseService.signOut();
-    } finally {
-      await _authLocalService.signOut();
-    }
+    return _authFirebaseService.signOut();
   }
 
   Future<UserModel?> getCurrentUser() async {
@@ -52,6 +30,4 @@ class AuthRepository {
     // Fallback to local
     return _authLocalService.getCurrentUser();
   }
-
-  Stream<User?> get authStateChanges => _authFirebaseService.authStateChanges;
 }

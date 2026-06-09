@@ -40,7 +40,8 @@ class RegistrationViewModel extends ChangeNotifier {
         throw Exception('A senha deve ter pelo menos 6 caracteres');
       }
 
-      _user = await _authRepository.signUp(name, email, password);
+      await _authRepository.signUp(email, password);
+      debugPrint('Registro realizado para $name ($email)');
       _registrationSuccess = true;
     } catch (e) {
       _errorMessage = e.toString().replaceFirst('Exception: ', '');

@@ -1,4 +1,3 @@
-// lib/data/services/user_firebase_service.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../domain/models/user_model.dart';
 

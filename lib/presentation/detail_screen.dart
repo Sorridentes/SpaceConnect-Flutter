@@ -18,14 +18,18 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final date = ModalRoute.of(context)?.settings.arguments as String?;
-    if (date != null) {
-      // Carregar dados somente na primeira vez
-      final viewModel = context.read<DetailViewModel>();
-      if (viewModel.uiState == UiState.initial) {
-        viewModel.loadAstronomy(date);
+
+    // ✅ CORREÇÃO: Aguarda o build terminar antes de carregar os dados
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final date = ModalRoute.of(context)?.settings.arguments as String?;
+      if (date != null) {
+        // Carregar dados somente na primeira vez
+        final viewModel = context.read<DetailViewModel>();
+        if (viewModel.uiState == UiState.initial) {
+          viewModel.loadAstronomy(date);
+        }
       }
-    }
+    });
   }
 
   String _formatDate(String dateStr) {
@@ -61,9 +65,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   _buildHeader(context, viewModel),
 
                   // Content
-                  Expanded(
-                    child: _buildContent(context, viewModel),
-                  ),
+                  Expanded(child: _buildContent(context, viewModel)),
                 ],
               ),
             ),
@@ -85,9 +87,9 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
           Text(
             'APOD 2025',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           IconButton(
             onPressed: viewModel.astronomy != null
@@ -116,10 +118,7 @@ class _DetailScreenState extends State<DetailScreen> {
             children: [
               CircularProgressIndicator(color: AppTheme.cyanAccent),
               SizedBox(height: 16),
-              Text(
-                'Carregando...',
-                style: TextStyle(color: Colors.white54),
-              ),
+              Text('Carregando...', style: TextStyle(color: Colors.white54)),
             ],
           ),
         );
@@ -130,7 +129,11 @@ class _DetailScreenState extends State<DetailScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.error_outline, color: AppTheme.errorRed, size: 48),
+              const Icon(
+                Icons.error_outline,
+                color: AppTheme.errorRed,
+                size: 48,
+              ),
               const SizedBox(height: 16),
               Text(
                 viewModel.errorMessage,
@@ -206,7 +209,9 @@ class _DetailScreenState extends State<DetailScreen> {
                     // Date badge
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 6),
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.05),
                         borderRadius: BorderRadius.circular(20),

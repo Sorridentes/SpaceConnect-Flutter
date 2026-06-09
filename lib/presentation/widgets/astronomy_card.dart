@@ -47,12 +47,12 @@ class AstronomyCard extends StatelessWidget {
               ),
               child: Image.network(
                 astronomy.image,
-                width: 80,
-                height: 90,
+                width: 180,
+                height: 190,
                 fit: BoxFit.cover,
                 errorBuilder: (_, __, ___) => Container(
-                  width: 80,
-                  height: 90,
+                  width: 180,
+                  height: 190,
                   color: Colors.white.withOpacity(0.05),
                   child: const Icon(
                     Icons.image_not_supported_outlined,
@@ -65,7 +65,10 @@ class AstronomyCard extends StatelessWidget {
             // Content
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 10,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

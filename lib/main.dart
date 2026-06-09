@@ -1,8 +1,9 @@
 // lib/main.dart
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:space_connect/core/firebase_options.dart';
 import 'core/dependency_injections.dart';
-import 'core/firebase_initializer.dart';
 import 'core/app_theme.dart';
 import 'core/app_routes.dart';
 import 'presentation/splash_screen.dart';
@@ -12,7 +13,6 @@ import 'presentation/registration_screen.dart';
 import 'presentation/gallery_screen.dart';
 import 'presentation/detail_screen.dart';
 import 'presentation/favorites_screen.dart';
-import 'presentation/view_models/splash_view_model.dart';
 import 'presentation/view_models/login_view_model.dart';
 import 'presentation/view_models/registration_view_model.dart';
 import 'presentation/view_models/gallery_view_model.dart';
@@ -22,8 +22,16 @@ import 'presentation/view_models/favorites_view_model.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase
-  await FirebaseInitializer.initialize();
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    debugPrint(
+      'Firebase conectado com sucesso: ${Firebase.app().options.projectId}',
+    );
+  } catch (e) {
+    debugPrint('Erro ao conectar ao Firebase: $e');
+  }
 
   setupDependencyInjections();
   runApp(const SpaceConnectApp());
@@ -37,7 +45,6 @@ class SpaceConnectApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => getIt<SplashViewModel>()),
         ChangeNotifierProvider(create: (_) => getIt<LoginViewModel>()),
         ChangeNotifierProvider(create: (_) => getIt<RegistrationViewModel>()),
         ChangeNotifierProvider(create: (_) => getIt<GalleryViewModel>()),

@@ -4,8 +4,6 @@ import '../core/app_routes.dart';
 import '../core/app_theme.dart';
 import 'view_models/login_view_model.dart';
 
-/// Tela de Login.
-/// Equivalente ao LoginScreen do protótipo Flutter + design Deep Space.
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -90,8 +88,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         child: Row(
                           children: [
-                            const Icon(Icons.error_outline,
-                                color: AppTheme.errorRed, size: 20),
+                            const Icon(
+                              Icons.error_outline,
+                              color: AppTheme.errorRed,
+                              size: 20,
+                            ),
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
@@ -115,8 +116,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: const TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
                         labelText: 'Email',
-                        prefixIcon:
-                            Icon(Icons.email_outlined, color: Colors.white38),
+                        prefixIcon: Icon(
+                          Icons.email_outlined,
+                          color: Colors.white38,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -128,8 +131,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         labelText: 'Senha',
-                        prefixIcon: const Icon(Icons.lock_outline,
-                            color: Colors.white38),
+                        prefixIcon: const Icon(
+                          Icons.lock_outline,
+                          color: Colors.white38,
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
@@ -180,7 +185,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, AppRoutes.registration);
+                            Navigator.pushNamed(
+                              context,
+                              AppRoutes.registration,
+                            );
                           },
                           child: const Text(
                             'Cadastre-se',
